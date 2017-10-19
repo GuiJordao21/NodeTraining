@@ -1,10 +1,10 @@
 var express = require('express');
 var path = require('path');
 //chamada handlebarss
-var hbs=require('express-handlebars');
-var fortune=require('./lib/fortune.js');
+var hbs = require('express-handlebars');
+var fortune = require('./lib/fortune.js');
 
-var app=express();
+var app = express();
 
 //aqui iniciamos o handlebars para facilitar o html
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout:'main'}));
@@ -42,7 +42,7 @@ app.get('/',function(req,res){
 //direcionamento para a pagina about
 app.get('/about', function(req,res){
         //aqui usamos uma func vinda de um arquivo na pasta lib, que sera exibida na page about.hbs, para definir qual a msg de sorte do dia sera exibida.
-        res.render('about', {fortune:fortune.getFortune()});
+        res.render('about', {fortune:fortune.getFortune(), pageTestScript: '/qa/tests-about.js'});
 });//fim
 
 app.get('/about/contact', function(req,res){
