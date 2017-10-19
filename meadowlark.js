@@ -6,22 +6,33 @@ var fortune=require('./lib/fortune.js');
 
 var app=express();
 
-// var fortunes=[
-//         "sorte do dia 1",
-//         "sorte do dia 2",
-//         "sorte do dia 3",
-//         "sorte do dia 4",
-//         "sorte do dia 5"
-// ];
-
 //aqui iniciamos o handlebars para facilitar o html
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout:'main'}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+//fim da chamada do handlebars
 
+//definimos a porta para conexao local
 app.set('port', process.env.PORT || 8080);
 
-app.use(express.static(__dirname + '/public'));;
+//chamada de diretorios staticos para uso de imagens e arquivos css
+app.use(express.static(__dirname + '/public'));
+
+//aqui habilitamos o acesso as paginas de teste
+//no caso dessa pagina, e a pag test=1
+app.use(function(req,res,next){
+        res.locals.showTests = app.get('env') !== 'production' && req.query.test === '1';
+        next();
+});
+//fim da abertura de rotas teste
+
+
+
+/*
+
+DIRECIONAMENTOS
+
+*/
 
 //direcionamento para a pag principal
 app.get('/',function(req,res){
