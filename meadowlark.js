@@ -61,6 +61,16 @@ app.use(function(req,res,next){
         res.render('404');
 });//fim do direcionamento para o erro 404
 
+//hood river
+app.get('/tours/hood-river', function(req, res){
+  res.render('tours/hood-river');
+});
+
+//request group
+app.get('/tours/request-group-rate', function(req,res){
+  res.render('tours/request-group-rate');
+});
+
 //custom 500 page
 app.use(function(err,req,res,next){
         console.error(err.stack);
