@@ -42,7 +42,7 @@ app.get('/',function(req,res){
 //direcionamento para a pagina about
 app.get('/about', function(req,res){
         //aqui usamos uma func vinda de um arquivo na pasta lib, que sera exibida na page about.hbs, para definir qual a msg de sorte do dia sera exibida.
-        res.render('about', {fortune:fortune.getFortune(), pageTestScript: '/qa/tests-about.js'});
+        res.render('about', {fortune : fortune.getFortune(), pageTestScript: '/qa/tests-about.js'});
 });//fim
 
 app.get('/about/contact', function(req,res){
