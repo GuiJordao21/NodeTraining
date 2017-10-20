@@ -9,7 +9,7 @@ suite('Cross-page Tests', function(){
       });
 
       test('requesting a group rate quote from the hood river tour page'+'should populate the referrer field', function(done){
-              var = referrer = ='http://localhost:8080/tours/hood-river';
+              var = referrer = 'http://localhost:8080/tours/hood-river';
               browser.visit(referrer, function(){
                       browser.clickLink('.requestGroupRate', function(){
                               assert(browser.field('referrer').value === referrer);
